@@ -21,7 +21,9 @@ jobs:
           name: Run YARN build
       - run:
           name: Moving Artifacts
-          command: mv ../dist/ /tmp/artifacts
+          command: mv ./dist/ /tmp/artifacts
+      - store_artifacts:
+          path: /tmp/artifacts
     
 workflows:
   test_my_app:
