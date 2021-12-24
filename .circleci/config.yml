@@ -14,6 +14,7 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
+          with-cache: false
       - run:
           command: yarn run build:demo
           name: Run YARN tests
