@@ -8,12 +8,14 @@ orbs:
 
 jobs:
   build:
-    docker:
-      - image: 'cimg/base:stable'
+    executor:
+      name: node/default
+      tag: '16'
     steps:
       - checkout
       - node/install-packages:
-          pkg-manager: yarn
+          check-cache: always
+          pkg-manager: yarn-berry
           with-cache: false
       - run:
           command: yarn run build:demo
